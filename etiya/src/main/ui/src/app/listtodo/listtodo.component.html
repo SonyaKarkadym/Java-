@@ -1,0 +1,27 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">CreatedAt</th>
+        <th scope="col">UpdatedAt</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let listtodo of listtodos">
+        <td>{{ listtodo.id }}</td>
+        <td>{{ listtodo.title }}</td>
+        <td>{{ listtodo.createdAt }}</td>
+        <td>{{ listtodo.updatedAt }}</td>
+        <td>
+          <a routerLink="/editlisttodo" [ngModel]="listtodo" class="btn btn-info">Edit</a>
+          <a class="btn btn-info" (click)="onListToDoDelete(listtodo.id)">Delete</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
