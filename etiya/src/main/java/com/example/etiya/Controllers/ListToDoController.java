@@ -9,6 +9,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
+@CrossOrigin
 @RequestMapping("/ListToDo")
 public class ListToDoController {
 
@@ -25,7 +26,7 @@ public class ListToDoController {
     }
 
     @DeleteMapping("/delete")
-    public void delete(int id){
+    public void delete(@RequestBody int id){
         listToDoServiceImp.delete(id);
     }
 

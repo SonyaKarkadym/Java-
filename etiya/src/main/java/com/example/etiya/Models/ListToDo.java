@@ -25,7 +25,7 @@ public class ListToDo {
     private Date updatedAt;
 
     @OneToMany(cascade = {CascadeType.ALL},fetch = FetchType.LAZY)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "list_id")
     @JsonIgnore
     List<ToDo> toDos = new ArrayList<>();
 

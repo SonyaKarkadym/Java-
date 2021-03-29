@@ -5,36 +5,36 @@ import com.example.etiya.Implementation.ToDoServiceImp;
 import com.example.etiya.Models.ListToDo;
 import com.example.etiya.Models.ToDo;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @AllArgsConstructor
 @RestController
+@CrossOrigin
 @RequestMapping("/ListToDo/ToDo")
 public class ToDoController {
 
     private ToDoServiceImp toDoServiceImp;
+
 
     @GetMapping("/")
     public List findALl(){
         return toDoServiceImp.findAll();
     }
 
-    @GetMapping("/create")
-    public void create(ToDo toDo){
+    @PostMapping("/create")
+    public void create(@RequestBody ToDo toDo){
         toDoServiceImp.create(toDo);
     }
 
-    @GetMapping("/delete")
+    @DeleteMapping("/delete")
     public void delete(int id){
         toDoServiceImp.delete(id);
     }
 
-    @GetMapping("/update")
-    public void update(ToDo toDo){
+    @PutMapping("/update")
+    public void update(@RequestBody ToDo toDo){
         toDoServiceImp.update(toDo);
     }
 
